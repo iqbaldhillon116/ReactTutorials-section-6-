@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Button from '../../UI/Button/Button';
 import styled from 'styled-components';
+import styles from './CourseInput.module.css';
 
 
 const FormComponent = styled.div`
@@ -74,11 +75,21 @@ const CourseInput = props => {
 
     // another alternative , we can pass props in this component too
 
+      // <form onSubmit={formSubmitHandler}>
+      // <FormComponent invalid={!isValid}>
+      //   <label >Course Goal</label> 
+      //   <input type="text" onChange={goalInputChangeHandler} />
+      // </FormComponent>
+      // <Button type="submit">Add Goal</Button>
+      // </form>
+
+      //code css module is below
+
       <form onSubmit={formSubmitHandler}>
-      <FormComponent invalid={!isValid}>
+      <div className={`${styles['form-control']} ${!isValid && styles.invalid }`}>
         <label >Course Goal</label> 
         <input type="text" onChange={goalInputChangeHandler} />
-      </FormComponent>
+      </div>
       <Button type="submit">Add Goal</Button>
       </form>
   );
